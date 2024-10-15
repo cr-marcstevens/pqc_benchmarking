@@ -5,21 +5,23 @@ OQSREPO="https://github.com/cr-marcstevens/liboqs" # contains speed_sig_stfl
 
 # liboqs/build/tests/speed_kem --algs
 OQSKEMALGS=`liboqs/build/tests/speed_kem --algs | grep -v disabled`
-#OQSKEMALGS="BIKE-L5 HQC-256 ML-KEM-1024 FrodoKEM-1344-AES FrodoKEM-1344-SHAKE Classic-McEliece-6688128 Classic-McEliece-6688128f"
+OQSKEMALGS="BIKE-L5 HQC-256 ML-KEM-1024 FrodoKEM-1344-AES FrodoKEM-1344-SHAKE Classic-McEliece-6688128 Classic-McEliece-6688128f"
 
 # liboqs/build/tests/speed_sig --algs
 OQSDSSALGS=`liboqs/build/tests/speed_sig --algs | grep -v disabled`
-#OQSDSSALGS="ML-DSA-87 Falcon-1024 Falcon-padded-1024 SPHINCS+-SHA2-256f-simple SPHINCS+-SHA2-256s-simple SPHINCS+-SHAKE-256f-simple SPHINCS+-SHAKE-256s-simple"
+OQSDSSALGS="ML-DSA-87 Falcon-1024 Falcon-padded-1024 SPHINCS+-SHA2-256f-simple SPHINCS+-SHA2-256s-simple SPHINCS+-SHAKE-256f-simple SPHINCS+-SHAKE-256s-simple"
 
 # liboqs/build/tests/speed_sig_stfl --algs
 OQSDSSSTFLALGS=`liboqs/build/tests/speed_sig_stfl --algs | grep -v disabled`
-#OQSDSSSTFLALGS="XMSSMT-SHA2_20/2_256 XMSSMT-SHA2_20/4_256 XMSSMT-SHAKE_20/2_256 XMSSMT-SHAKE_20/4_256"
+OQSDSSSTFLALGS="XMSSMT-SHA2_20/2_256 XMSSMT-SHA2_20/4_256 XMSSMT-SHAKE_20/2_256 XMSSMT-SHAKE_20/4_256"
 
 OQSOPTIONS="-DOQS_ENABLE_SIG_STFL_XMSS=ON -DOQS_ENABLE_SIG_STFL_LMS=ON -DOQS_HAZARDOUS_EXPERIMENTAL_ENABLE_SIG_STFL_KEY_SIG_GEN=ON -DOQS_DIST_BUILD=OFF"
 
 BENCHOPTIONS="-d 10 -i"
 
 HOSTNAME=`hostname -s`
+mkdir $HOSTNAME
+cat /proc/cpuinfo | grep "^processor.*: 1$" -B100 | head -n-2 > $HOSTNAME/cpu_info.txt
 
 # check for git & openssl
 if [ -z $(command -v git) ]; then
@@ -88,8 +90,6 @@ fi
 echo "* Building..."
 make -j 8 || exit 10
 
-mkdir $HOSTNAME
-cat /proc/cpuinfo | grep "^processor.*: 1$" -B100 | head -n-2 > $HOSTNAME/cpu_info.txt
 
 ############### BENCHMARK PQC KEMS #####################
 
