@@ -3,25 +3,28 @@
 OQSREPO="https://github.com/cr-marcstevens/liboqs" # contains speed_sig_stfl
 #OQSREPO="https://github.com/open-quantum-safe/liboqs"
 
+OQSOPTIONS="-DOQS_ENABLE_SIG_STFL_XMSS=ON -DOQS_ENABLE_SIG_STFL_LMS=ON -DOQS_HAZARDOUS_EXPERIMENTAL_ENABLE_SIG_STFL_KEY_SIG_GEN=ON -DOQS_DIST_BUILD=OFF"
+
 # liboqs/build/tests/speed_kem --algs
-OQSKEMALGS=`liboqs/build/tests/speed_kem --algs | grep -v disabled`
-OQSKEMALGS="BIKE-L5 HQC-256 ML-KEM-1024 FrodoKEM-1344-AES FrodoKEM-1344-SHAKE Classic-McEliece-6688128 Classic-McEliece-6688128f"
+#OQSKEMALGS="BIKE-L5 HQC-256 ML-KEM-1024 FrodoKEM-1344-AES FrodoKEM-1344-SHAKE Classic-McEliece-6688128 Classic-McEliece-6688128f"
 
 # liboqs/build/tests/speed_sig --algs
-OQSDSSALGS=`liboqs/build/tests/speed_sig --algs | grep -v disabled`
-OQSDSSALGS="ML-DSA-87 Falcon-1024 Falcon-padded-1024 SPHINCS+-SHA2-256f-simple SPHINCS+-SHA2-256s-simple SPHINCS+-SHAKE-256f-simple SPHINCS+-SHAKE-256s-simple"
+#OQSDSSALGS="ML-DSA-87 Falcon-1024 Falcon-padded-1024 SPHINCS+-SHA2-256f-simple SPHINCS+-SHA2-256s-simple SPHINCS+-SHAKE-256f-simple SPHINCS+-SHAKE-256s-simple"
 
 # liboqs/build/tests/speed_sig_stfl --algs
-OQSDSSSTFLALGS=`liboqs/build/tests/speed_sig_stfl --algs | grep -v disabled`
-OQSDSSSTFLALGS="XMSSMT-SHA2_20/2_256 XMSSMT-SHA2_20/4_256 XMSSMT-SHAKE_20/2_256 XMSSMT-SHAKE_20/4_256"
-
-OQSOPTIONS="-DOQS_ENABLE_SIG_STFL_XMSS=ON -DOQS_ENABLE_SIG_STFL_LMS=ON -DOQS_HAZARDOUS_EXPERIMENTAL_ENABLE_SIG_STFL_KEY_SIG_GEN=ON -DOQS_DIST_BUILD=OFF"
+#OQSDSSSTFLALGS="XMSSMT-SHA2_20/2_256 XMSSMT-SHA2_20/4_256 XMSSMT-SHAKE_20/2_256 XMSSMT-SHAKE_20/4_256"
 
 BENCHOPTIONS="-d 10 -i"
 
 HOSTNAME=`hostname -s`
 mkdir $HOSTNAME
 cat /proc/cpuinfo | grep "^processor.*: 1$" -B100 | head -n-2 > $HOSTNAME/cpu_info.txt
+
+if [ ! -x "$(command -v stdbuf)" ]; then
+	STDBUF=""
+else
+	STDBUF="stdbuf -o0 "
+fi
 
 # check for git & openssl
 if [ -z $(command -v git) ]; then
@@ -95,53 +98,51 @@ make -j 8 || exit 10
 
 LOGFILE=../../$HOSTNAME/kem.log
 [ -f $LOGFILE ] && rm $LOGFILE
-for a in $OQSKEMALGS; do
-	echo -n "* Benchmarking $a..."
-	echo "=============================== $a ==============================" >> $LOGFILE
-	./tests/speed_kem $BENCHOPTIONS $a >> $LOGFILE
-	echo -e "\n\n" >> $LOGFILE
-	echo "[Done]"
-done
+
+if [ -z $OQSKEMALGS ]; then
+	echo "* Benchmarking..."
+	$STDBUF ./tests/speed_kem $BENCHOPTIONS | tee -a $LOGFILE
+else
+	for a in $OQSKEMALGS; do
+		echo -n "* Benchmarking $a..."
+		echo "=============================== $a ==============================" >> $LOGFILE
+		./tests/speed_kem $BENCHOPTIONS $a >> $LOGFILE
+		echo -e "\n\n" >> $LOGFILE
+		echo "[Done]"
+	done
+fi
 
 ############### BENCHMARK PQC DSAS #####################
 
 LOGFILE=../../$HOSTNAME/dss.log
 [ -f $LOGFILE ] && rm $LOGFILE
-for a in $OQSDSSALGS; do
-	echo -n "* Benchmarking $a..."
-	echo "=============================== $a ==============================" >> $LOGFILE
-	./tests/speed_sig $BENCHOPTIONS $a >> $LOGFILE
-	echo -e "\n\n" >> $LOGFILE
-	echo "[Done]"
-done
+if [ -z $OQSDSSALGS ]; then
+	echo "* Benchmarking..."
+	$STDBUF ./tests/speed_sig $BENCHOPTIONS | tee -a $LOGFILE
+else
+	for a in $OQSDSSALGS; do
+		echo -n "* Benchmarking $a..."
+		echo "=============================== $a ==============================" >> $LOGFILE
+		./tests/speed_sig $BENCHOPTIONS $a >> $LOGFILE
+		echo -e "\n\n" >> $LOGFILE
+		echo "[Done]"
+	done
+fi
 
 ############### BENCHMARK PQC Stateful DSAS #####################
 
 LOGFILE=../../$HOSTNAME/dss_stfl.log
 [ -f $LOGFILE ] && rm $LOGFILE
-for a in $OQSDSSSTFLALGS; do
-	echo -n "* Benchmarking $a..."
-	echo "=============================== $a ==============================" >> $LOGFILE
-	./tests/speed_sig_stfl $BENCHOPTIONS $a >> $LOGFILE
-	echo -e "\n\n" >> $LOGFILE
-	echo "[Done]"
-done
-cd .. # build
-cd .. # liboqs
 
-############### BENCHMARK EC & RSA #####################
-
-LOGFILE=$HOSTNAME/openssl.log
-[ -f $LOGFILE ] && rm $LOGFILE
-
-openssl speed rsa3072 | tee -a $LOGFILE
-openssl speed ed25519 | tee -a $LOGFILE
-
-# rough benchmark for RSA key generation
-
-BEG=`date +%s`
-for (( i=1; i <= 1024; ++i)); do
-	openssl genrsa 3072 &>/dev/null
-done
-END=`date +%s`
-echo "RSA3072 keygen: $(($END-$BEG)) seconds for 1024 keygens" | tee -a $LOGFILE
+if [ -z $OQSDSSSTFLALGS ]; then
+	echo "* Benchmarking..."
+	$STDBUF ./tests/speed_sig_stfl $BENCHOPTIONS |& tee -a $LOGFILE
+else
+	for a in $OQSDSSSTFLALGS; do
+		echo -n "* Benchmarking $a..."
+		echo "=============================== $a ==============================" >> $LOGFILE
+		./tests/speed_sig_stfl $BENCHOPTIONS $a >> $LOGFILE
+		echo -e "\n\n" >> $LOGFILE
+		echo "[Done]"
+	done
+fi
