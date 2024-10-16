@@ -1,0 +1,41 @@
+   INFO: ./configure.py invoked with options "--prefix=build --build-targets=static,cli"
+   INFO: Configuring to build Botan 3.6.0 (revision git:c427ecdf2c101a5723f02dcfc419e1ac955fd59b)
+   INFO: Python version: "3.12.1 (main, Dec 18 2023, 00:00:00) [GCC 13.2.1 20231205 (Red Hat 13.2.1-6)]"
+   INFO: Autodetected platform information: OS="Linux" machine="x86_64" proc=""
+   INFO: Guessing target OS is linux (use --os to set)
+   INFO: Guessing to use compiler gcc (use --cc or CXX to set)
+   INFO: Guessing target processor is a x86_64 (use --cpu to set)
+   INFO: Found sphinx-build (use --without-sphinx to disable)
+   INFO: Found rst2man (use --without-rst2man to disable)
+   INFO: Using /etc/ssl/certs/ca-certificates.crt as system certificate store
+   INFO: Auto-detected compiler version gcc 13.2
+   INFO: Auto-detected compiler arch x86_64
+   INFO: Target is gcc:13.2-linux-x86_64
+   INFO: Assuming target x86_64 is little endian
+   INFO: Skipping (dependency failure): asio certstor_sqlite3 sessions_sqlite3 tpm2_crypto_backend tpm2_ecc tpm2_rsa
+   INFO: Skipping (incompatible CPU): aes_armv8 aes_power8 sha1_armv8 sha2_32_armv8 sha2_64_armv8 shacal2_armv8 sm4_armv8
+   INFO: Skipping (incompatible OS): certstor_system_macos certstor_system_windows commoncrypto win32_stats
+   INFO: Skipping (no enabled compression schemes): compression
+   INFO: Skipping (not requested): jitter_rng
+   INFO: Skipping (requires external dependency): boost bzip2 lzma sqlite3 tpm tpm2 zlib
+WARNING: These modules are deprecated and will be removed in a future release (consider disabling with --disable-deprecated-features): dilithium_aes dlies gost_28147 gost_3410 kyber_90s lion mce md4 noekeon prf_x942 shake_cipher streebog
+   INFO: Loading modules: adler32 aead aes aes_crystals_xof aes_ni aes_vaes aes_vperm argon2 argon2_avx2 argon2_ssse3 argon2fmt aria asn1 auto_rng base base32 base58 base64 bcrypt bcrypt_pbkdf bigint blake2 blake2mac blake2s block blowfish camellia cascade cast128 cbc ccm certstor_flatfile certstor_sql certstor_system cfb chacha chacha20poly1305 chacha_avx2 chacha_avx512 chacha_rng chacha_simd32 checksum cmac comb4p cpuid crc24 crc32 cryptobox cshake_xof ctr curve448 des dh dilithium dilithium_aes dilithium_common dilithium_round3 dilithium_shake dl_algo dl_group dlies dsa dyn_load eax ec_group ecc_key ecdh ecdsa ecgdsa ecies eckcdsa ed25519 ed448 elgamal eme_oaep eme_pkcs1 eme_raw emsa_pkcs1 emsa_pssr emsa_raw emsa_x931 entropy fd_unix ffi filters fpe_fe1 frodokem frodokem_aes frodokem_common gcm getentropy ghash ghash_cpu ghash_vperm gmac gost_28147 gost_3410 gost_3411 hash hash_id hex hkdf hmac hmac_drbg hotp hss_lms http_util idea idea_sse2 iso9796 kdf kdf1 kdf1_iso18033 kdf2 keccak keccak_perm keccak_perm_bmi2 keypair kmac kuznyechik kyber kyber_90s kyber_common kyber_round3 lion locking_allocator mac mce md4 md5 mdx_hash mem_pool mgf1 ml_dsa ml_kem mode_pad modes mp nist_keywrap noekeon noekeon_simd numbertheory ocb ofb par_hash passhash9 pbes2 pbkdf pbkdf2 pcurves pcurves_brainpool256r1 pcurves_brainpool384r1 pcurves_brainpool512r1 pcurves_frp256v1 pcurves_impl pcurves_numsp512d1 pcurves_secp192r1 pcurves_secp224r1 pcurves_secp256k1 pcurves_secp256r1 pcurves_secp384r1 pcurves_secp521r1 pcurves_sm2p256v1 pem pgp_s2k pk_pad pkcs11 poly1305 poly_dbl pqcrystals prf_tls prf_x942 processor_rng psk_db pubkey raw_hash rc4 rdseed rfc3394 rfc6979 rmd160 rng roughtime rsa salsa20 scrypt seed serpent serpent_avx2 serpent_avx512 serpent_simd sessions_sql sha1 sha1_sse2 sha1_x86 sha2_32 sha2_32_bmi2 sha2_32_x86 sha2_64 sha2_64_bmi2 sha3 shacal2 shacal2_avx2 shacal2_simd shacal2_x86 shake shake_cipher shake_xof simd simd_avx2 simd_avx512 siphash siv skein slh_dsa_sha2 slh_dsa_shake sm2 sm3 sm4 sm4_gfni socket sodium sp800_108 sp800_56a sp800_56c sphincsplus_common sphincsplus_sha2 sphincsplus_sha2_base sphincsplus_shake sphincsplus_shake_base srp6 stateful_rng stream streebog system_rng thread_utils threefish_512 tls tls12 tls13 tls13_pqc tls_cbc tree_hash trunc_hash tss twofish utils uuid whirlpool x25519 x448 x509 x919_mac xmd xmss xof xts zfec zfec_sse2 zfec_vperm
+   INFO: Using symlink to link files into build dir (use --link-method to change)
+   INFO: Botan 3.6.0 (revision git:c427ecdf2c101a5723f02dcfc419e1ac955fd59b) (unreleased undated) build setup is complete
+RSA-1024 99 keygen/sec; 10.09 ms/op 25236644 cycles/op (991 ops in 10004 ms)
+RSA-1024 1912 sign/sec; 0.52 ms/op 1307549 cycles/op (19121 ops in 10000 ms)
+RSA-1024 133814 verify/sec; 0.01 ms/op 18683 cycles/op (1338144 ops in 10000 ms)
+RSA-2048 15 keygen/sec; 63.50 ms/op 158749431 cycles/op (158 ops in 10033 ms)
+RSA-2048 455 sign/sec; 2.20 ms/op 5493582 cycles/op (4551 ops in 10000 ms)
+RSA-2048 43308 verify/sec; 0.02 ms/op 57726 cycles/op (433086 ops in 10000 ms)
+RSA-3072 4 keygen/sec; 203.63 ms/op 509074884 cycles/op (50 ops in 10181 ms)
+RSA-3072 170 sign/sec; 5.87 ms/op 14687016 cycles/op (1703 ops in 10005 ms)
+RSA-3072 16083 verify/sec; 0.06 ms/op 155442 cycles/op (160834 ops in 10000 ms)
+RSA-4096 1 keygen/sec; 663.83 ms/op 1659587846 cycles/op (16 ops in 10621 ms)
+RSA-4096 82 sign/sec; 12.11 ms/op 30272677 cycles/op (826 ops in 10002 ms)
+RSA-4096 9573 verify/sec; 0.10 ms/op 261151 cycles/op (95732 ops in 10000 ms)
+Ed25519 28232 keygen/sec; 0.04 ms/op 88552 cycles/op (282326 ops in 10000 ms)
+Ed25519 27751 sign/sec; 0.04 ms/op 90087 cycles/op (277514 ops in 10000 ms)
+Ed25519 8341 verify/sec; 0.12 ms/op 299719 cycles/op (83412 ops in 10000 ms)
+X25519 25271 keygen/sec; 0.04 ms/op 98936 cycles/op (252713 ops in 10000 ms)
+X25519 25203 key agreements/sec; 0.04 ms/op 99193 cycles/op (252038 ops in 10000 ms)
