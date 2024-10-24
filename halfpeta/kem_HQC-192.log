@@ -1,0 +1,25 @@
+Configuration info
+==================
+Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
+Compiler:         gcc (13.2.1)
+Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
+OQS version:      0.11.1-dev
+Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
+AES:              NI
+SHA-2:            OpenSSL
+SHA-3:            C
+OQS build flags:  OQS_LIBJADE_BUILD OQS_OPT_TARGET=auto CMAKE_BUILD_TYPE=Release 
+CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE SSE2 SSE3
+
+Speed test
+==========
+Started at 2024-10-23 12:55:09
+Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
+------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
+HQC-192                              |            |                |                 |            |                           |           
+keygen                               |       3536 |         10.001 |        2828.449 |     27.552 |                   7071109 |      68853
+encaps                               |       1760 |         10.003 |        5683.509 |     19.111 |                  14208773 |      47787
+decaps                               |       1168 |         10.005 |        8566.348 |     29.039 |                  21415937 |      72567
+public key bytes: 4522, ciphertext bytes: 8978, secret key bytes: 4586, shared secret key bytes: 64, NIST level: 3, IND-CCA: Y
+Ended at 2024-10-23 12:55:39

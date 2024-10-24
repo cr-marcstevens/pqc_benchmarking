@@ -5,7 +5,7 @@ model		: 85
 model name	: Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
 stepping	: 7
 microcode	: 0x500002c
-cpu MHz		: 999.996
+cpu MHz		: 1000.049
 cache size	: 28160 KB
 physical id	: 0
 siblings	: 40

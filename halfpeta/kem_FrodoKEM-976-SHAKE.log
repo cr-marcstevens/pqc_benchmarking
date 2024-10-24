@@ -1,0 +1,25 @@
+Configuration info
+==================
+Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
+Compiler:         gcc (13.2.1)
+Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
+OQS version:      0.11.1-dev
+Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
+AES:              NI
+SHA-2:            OpenSSL
+SHA-3:            C
+OQS build flags:  OQS_LIBJADE_BUILD OQS_OPT_TARGET=auto CMAKE_BUILD_TYPE=Release 
+CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE SSE2 SSE3
+
+Speed test
+==========
+Started at 2024-10-23 13:01:09
+Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
+------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
+FrodoKEM-976-SHAKE                   |            |                |                 |            |                           |           
+keygen                               |       7440 |         10.001 |        1344.167 |    106.988 |                   3360379 |     267443
+encaps                               |       6573 |         10.001 |        1521.476 |     12.502 |                   3803639 |      31241
+decaps                               |       6782 |         10.001 |        1474.682 |     12.694 |                   3686671 |      31714
+public key bytes: 15632, ciphertext bytes: 15744, secret key bytes: 31296, shared secret key bytes: 24, NIST level: 3, IND-CCA: Y
+Ended at 2024-10-23 13:01:39
