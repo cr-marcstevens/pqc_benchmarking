@@ -1,11 +1,10 @@
 #!/bin/bash
 
-REPO="https://github.com/cr-marcstevens/botan" # contains pk keygen bench
-#REPO="https://github.com/randombit/botan"
+REPO="https://github.com/randombit/botan"
 
 CONFOPTIONS="--build-targets=static,cli"
 
-BENCHALGS="RSA Ed25519 X25519"
+#BENCHALGS="RSA Ed25519 X25519"
 
 BENCHOPTIONS="--msec=10000"
 
@@ -16,7 +15,7 @@ cat /proc/cpuinfo | grep "^processor.*: 1$" -B100 | head -n-2 > $HOSTNAME/cpu_in
 if [ ! -x "$(command -v stdbuf)" ]; then
 	STDBUF=""
 else
-	STDBUF="stdbuf -o0 "
+	STDBUF="stdbuf -oL "
 fi
 
 # check for git & openssl
@@ -85,4 +84,5 @@ LOGFILE=../$HOSTNAME/botan.log
 cp config.log $LOGFILE
 
 echo "* Benchmarking..."
-$STDBUF ./build/bin/botan speed $BENCHOPTIONS $BENCHALGS | tee -a $LOGFILE
+$STDBUF ./build/bin/botan speed $BENCHOPTIONS $BENCHALGS | tee -a $LOGFILE 2>&1
+
