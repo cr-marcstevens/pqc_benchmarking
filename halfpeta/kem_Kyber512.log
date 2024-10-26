@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-23 12:56:09
+Started at 2024-10-25 13:04:47
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 Kyber512                             |            |                |                 |            |                           |           
-keygen                               |    1516110 |         10.000 |           6.596 |      3.800 |                     16444 |       9422
-encaps                               |    1138553 |         10.000 |           8.783 |      0.540 |                     21910 |        810
-decaps                               |    1593679 |         10.000 |           6.275 |      0.506 |                     15637 |        642
+keygen                               |    1516731 |         10.000 |           6.593 |      1.202 |                     16440 |       2754
+encaps                               |    1148774 |         10.000 |           8.705 |      0.556 |                     21719 |        755
+decaps                               |    1610800 |         10.000 |           6.208 |      0.457 |                     15476 |        591
 public key bytes: 800, ciphertext bytes: 768, secret key bytes: 1632, shared secret key bytes: 32, NIST level: 1, IND-CCA: Y
-Ended at 2024-10-23 12:56:39
+Ended at 2024-10-25 13:05:17

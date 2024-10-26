@@ -32,7 +32,8 @@ if [ ! -d liboqs ]; then
 		echo "[Failed]"
 		exit 3
 	fi
-else
+	rm $HOSTNAME/{kem,sig}_*.log
+elif [ "$1" != "--no-update" ]; then
 	cd liboqs
 	echo -n "* Updating libOQS repository... "
 	git remote update 2>/dev/null >/dev/null
@@ -47,7 +48,7 @@ else
 			exit 4
 		fi
 		rm -rf build 2>/dev/null >/dev/null
-		rm $HOSTNAME/{kem,sig}_*.log
+		rm ../$HOSTNAME/{kem,sig}_*.log
 
 		for d in OQS_ENABLE_SIG_STFL_lms_sha256_h20_w1 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w2 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w4 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w8 ; do
 			if [ `grep $d src/oqsconfig.h.cmake | wc -l` -eq 0 ]; then
@@ -150,9 +151,10 @@ if [ -z "$OQSDSSSTFLALGS" ]; then
 	fi
 else
 	for a in $OQSDSSSTFLALGS; do
-		LOGFILE=${LOGBASE}_${a}.log
+		aa=`echo "$a" | tr '/' '_'`
+		LOGFILE=${LOGBASE}_${aa}.log
 		if [ -f $LOGFILE ]; then continue; fi
 		echo "* Benchmarking $a..."
-		./tests/speed_sig_stfl $BENCHOPTIONS $a |& tee $LOGFILE
+		./tests/speed_sig_stfl $BENCHOPTIONS "$a" |& tee $LOGFILE
 	done
 fi

@@ -1,0 +1,25 @@
+Configuration info
+==================
+Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
+Compiler:         gcc (13.2.1)
+Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
+OQS version:      0.11.1-dev
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
+OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
+AES:              NI
+SHA-2:            OpenSSL
+SHA-3:            C
+OQS build flags:  OQS_LIBJADE_BUILD OQS_OPT_TARGET=auto CMAKE_BUILD_TYPE=Release 
+CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE SSE2 SSE3
+
+Speed test
+==========
+Started at 2024-10-25 20:24:27
+Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
+------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
+XMSSMT-SHAKE_20/2_256                |            |                |                 |            |                           |           
+keypair                              |          5 |         11.992 |     2398478.600 |   6619.921 |                1701257707 |   16549548
+sign                                 |       1558 |         10.005 |        6421.728 |   2321.928 |                  16054329 |    5804855
+verify                               |       7507 |         10.001 |        1332.160 |     16.571 |                   3330361 |      41411
+public key bytes: 68, secret key bytes: 6002, signature bytes: 4963
+Ended at 2024-10-25 20:24:59

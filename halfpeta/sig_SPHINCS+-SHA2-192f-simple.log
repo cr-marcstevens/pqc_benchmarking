@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-23 13:10:10
+Started at 2024-10-25 13:18:48
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 SPHINCS+-SHA2-192f-simple            |            |                |                 |            |                           |           
-keypair                              |      26835 |         10.000 |         372.655 |     17.795 |                    931602 |      44465
-sign                                 |       1014 |         10.001 |        9863.077 |     23.476 |                  24657754 |      58703
-verify                               |      13323 |         10.000 |         750.596 |      4.164 |                   1876451 |      10352
+keypair                              |      26769 |         10.000 |         373.580 |      5.615 |                    933903 |      13996
+sign                                 |       1013 |         10.001 |        9873.020 |    102.616 |                  24682610 |     256539
+verify                               |      12929 |         10.000 |         773.458 |     10.367 |                   1933608 |      25888
 public key bytes: 48, secret key bytes: 96, signature bytes: 35664
-Ended at 2024-10-23 13:10:40
+Ended at 2024-10-25 13:19:18

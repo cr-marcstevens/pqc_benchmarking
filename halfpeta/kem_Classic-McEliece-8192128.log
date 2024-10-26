@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-23 12:53:39
+Started at 2024-10-25 13:02:17
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 Classic-McEliece-8192128             |            |                |                 |            |                           |           
-keygen                               |         50 |         10.058 |      201168.560 |  64423.176 |                 502924005 |  161058710
-encaps                               |     134870 |         10.000 |          74.146 |      9.176 |                    185247 |      22911
-decaps                               |     121190 |         10.000 |          82.515 |      1.097 |                    206240 |       2497
+keygen                               |         53 |         10.043 |      189485.679 |  60987.233 |                 473716787 |  152469284
+encaps                               |     136175 |         10.000 |          73.435 |      9.257 |                    183465 |      23123
+decaps                               |     121123 |         10.000 |          82.561 |      1.423 |                    206357 |       3379
 public key bytes: 1357824, ciphertext bytes: 208, secret key bytes: 14120, shared secret key bytes: 32, NIST level: 5, IND-CCA: Y
-Ended at 2024-10-23 12:54:09
+Ended at 2024-10-25 13:02:47

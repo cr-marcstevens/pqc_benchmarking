@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-23 12:58:09
+Started at 2024-10-25 13:06:48
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 ML-KEM-768                           |            |                |                 |            |                           |           
-keygen                               |    1013957 |         10.000 |           9.862 |      4.611 |                     24611 |      11480
-encaps                               |    1020221 |         10.000 |           9.802 |      0.536 |                     24456 |        828
-decaps                               |    1055762 |         10.000 |           9.472 |      0.590 |                     23633 |        800
+keygen                               |    1010268 |         10.000 |           9.898 |      4.644 |                     24697 |      11567
+encaps                               |     980277 |         10.000 |          10.201 |      0.501 |                     25450 |        854
+decaps                               |    1012548 |         10.000 |           9.876 |      0.493 |                     24642 |        793
 public key bytes: 1184, ciphertext bytes: 1088, secret key bytes: 2400, shared secret key bytes: 32, NIST level: 3, IND-CCA: Y
-Ended at 2024-10-23 12:58:39
+Ended at 2024-10-25 13:07:18

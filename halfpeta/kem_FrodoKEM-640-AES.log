@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       90030a4ae4ae26b2e90c3e84cc11395e6b5d77a2
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-23 12:59:39
+Started at 2024-10-25 13:08:18
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 FrodoKEM-640-AES                     |            |                |                 |            |                           |           
-keygen                               |      29651 |         10.000 |         337.260 |     37.047 |                    843108 |      92607
-encaps                               |      21070 |         10.000 |         474.618 |      3.596 |                   1186500 |       8926
-decaps                               |      21626 |         10.000 |         462.419 |      3.355 |                   1156007 |       8306
+keygen                               |      29057 |         10.000 |         344.154 |     36.288 |                    860342 |      90708
+encaps                               |      21055 |         10.000 |         474.948 |      7.352 |                   1187322 |      18353
+decaps                               |      21338 |         10.000 |         468.664 |      7.947 |                   1171613 |      19841
 public key bytes: 9616, ciphertext bytes: 9720, secret key bytes: 19888, shared secret key bytes: 16, NIST level: 1, IND-CCA: Y
-Ended at 2024-10-23 13:00:09
+Ended at 2024-10-25 13:08:48
