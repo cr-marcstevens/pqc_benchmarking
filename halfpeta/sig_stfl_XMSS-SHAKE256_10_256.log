@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af (+ local modifications)
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-25 17:41:55
+Started at 2024-10-27 02:37:28
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 XMSS-SHAKE256_10_256                 |            |                |                 |            |                           |           
-keypair                              |          9 |         10.822 |     1202443.444 |   1651.563 |                3006123127 |    4128538
-sign                                 |       1866 |         10.007 |        5362.715 |   2305.216 |                  13406809 |    5763038
-verify                               |      15073 |         10.000 |         663.471 |      9.403 |                   1658642 |      23484
+keypair                              |        822 |       1000.872 |     1217605.988 |    812.965 |                3044029474 |    2032412
+sign                                 |     190684 |       1000.004 |        5244.299 |   2332.229 |                  13110763 |    5830599
+verify                               |    1514465 |       1000.000 |         660.300 |      7.373 |                   1650711 |      18400
 public key bytes: 68, secret key bytes: 1377, signature bytes: 2500
-Ended at 2024-10-25 17:42:27
+Ended at 2024-10-27 02:31:15

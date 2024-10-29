@@ -33,6 +33,13 @@ if [ ! -d liboqs ]; then
 		exit 3
 	fi
 	rm $HOSTNAME/{kem,sig}_*.log
+	cd liboqs
+	for d in OQS_ENABLE_SIG_STFL_lms_sha256_h20_w1 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w2 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w4 OQS_ENABLE_SIG_STFL_lms_sha256_h20_w8 ; do
+		if [ `grep $d src/oqsconfig.h.cmake | wc -l` -eq 0 ]; then
+			echo "#cmakedefine $d 1" >> src/oqsconfig.h.cmake
+		fi
+	done
+	cd ..
 elif [ "$1" != "--no-update" ]; then
 	cd liboqs
 	echo -n "* Updating libOQS repository... "
@@ -155,6 +162,6 @@ else
 		LOGFILE=${LOGBASE}_${aa}.log
 		if [ -f $LOGFILE ]; then continue; fi
 		echo "* Benchmarking $a..."
-		./tests/speed_sig_stfl $BENCHOPTIONS "$a" |& tee $LOGFILE
+		./tests/speed_sig_stfl $STFLBENCHOPTIONS "$a" |& tee $LOGFILE
 	done
 fi

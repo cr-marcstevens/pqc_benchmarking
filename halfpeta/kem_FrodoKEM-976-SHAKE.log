@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af (+ local modifications)
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-25 13:09:48
+Started at 2024-10-26 08:19:24
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 FrodoKEM-976-SHAKE                   |            |                |                 |            |                           |           
-keygen                               |       7424 |         10.000 |        1347.041 |    106.371 |                   3367560 |     265928
-encaps                               |       6577 |         10.000 |        1520.454 |     24.013 |                   3801071 |      60023
-decaps                               |       6778 |         10.001 |        1475.438 |     22.483 |                   3688551 |      56184
+keygen                               |       7421 |         10.000 |        1347.573 |     27.163 |                   3368897 |      67886
+encaps                               |       6572 |         10.000 |        1521.673 |     22.524 |                   3804139 |      56301
+decaps                               |       6784 |         10.001 |        1474.221 |     20.973 |                   3685509 |      52429
 public key bytes: 15632, ciphertext bytes: 15744, secret key bytes: 31296, shared secret key bytes: 24, NIST level: 3, IND-CCA: Y
-Ended at 2024-10-25 13:10:18
+Ended at 2024-10-26 08:19:54

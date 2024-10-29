@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-26 11:30:23
+Started at 2024-10-28 08:34:28
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
-XMSS-SHAKE_10_256                    |            |                |                 |            |                           |           
-keypair                              |        831 |       1000.478 |     1203945.051 |   1277.411 |                3009877049 |    3193520
-sign                                 |     190443 |       1000.007 |        5250.950 |   2336.967 |                  13127389 |    5842440
-verify                               |    1583668 |       1000.000 |         631.446 |      8.701 |                   1578574 |      21725
-public key bytes: 68, secret key bytes: 1377, signature bytes: 2500
-Ended at 2024-10-26 12:24:07
+LMS_SHA256_H20_W8                    |            |                |                 |            |                           |           
+keypair                              |          1 |       2465.876 |  2465876342.000 |      0.000 |                1442445532 |          0
+sign                                 |          1 |       2466.631 |  2466630836.000 |      0.000 |                3327886530 |          0
+verify                               |     850457 |       1000.001 |        1175.840 |     11.535 |                   2939569 |      28820
+public key bytes: 60, secret key bytes: 64, signature bytes: 1776
+Ended at 2024-10-28 10:54:29

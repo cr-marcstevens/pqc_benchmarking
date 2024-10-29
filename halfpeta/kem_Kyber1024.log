@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af (+ local modifications)
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-25 13:05:47
+Started at 2024-10-26 08:15:23
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 Kyber1024                            |            |                |                 |            |                           |           
-keygen                               |     714241 |         10.000 |          14.001 |      1.655 |                     34959 |       4043
-encaps                               |     563896 |         10.000 |          17.734 |      0.676 |                     44283 |       1210
-decaps                               |     734173 |         10.000 |          13.621 |      0.631 |                     34009 |        990
+keygen                               |     717358 |         10.000 |          13.940 |      1.650 |                     34808 |       4010
+encaps                               |     569630 |         10.000 |          17.555 |      0.640 |                     43842 |       1015
+decaps                               |     734201 |         10.000 |          13.620 |      0.599 |                     34001 |        861
 public key bytes: 1568, ciphertext bytes: 1568, secret key bytes: 3168, shared secret key bytes: 32, NIST level: 5, IND-CCA: Y
-Ended at 2024-10-25 13:06:17
+Ended at 2024-10-26 08:15:53

@@ -4,7 +4,7 @@ Target platform:  x86_64-Linux-6.5.6-300.fc39.x86_64
 Compiler:         gcc (13.2.1)
 Compile options:  [-march=native;-Wa,--noexecstack;-O3;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
 OQS version:      0.11.1-dev
-Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af
+Git commit:       71324732640cf4451cab425ac5d80ed9fd41a3af (+ local modifications)
 OpenSSL enabled:  Yes (OpenSSL 3.1.1 30 May 2023)
 AES:              NI
 SHA-2:            OpenSSL
@@ -14,12 +14,12 @@ CPU exts compile-time:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ POPCNT SSE S
 
 Speed test
 ==========
-Started at 2024-10-25 13:08:48
+Started at 2024-10-26 08:18:24
 Operation                            | Iterations | Total time (s) | Time (us): mean | pop. stdev | CPU cycles: mean          | pop. stdev
 ------------------------------------ | ----------:| --------------:| ---------------:| ----------:| -------------------------:| ----------:
 FrodoKEM-640-SHAKE                   |            |                |                 |            |                           |           
-keygen                               |      15720 |         10.000 |         636.156 |     15.884 |                   1590349 |      39686
-encaps                               |      13722 |         10.001 |         728.794 |     11.616 |                   1821932 |      29025
-decaps                               |      14118 |         10.001 |         708.359 |     11.561 |                   1770853 |      28877
+keygen                               |      15747 |         10.000 |         635.056 |     58.031 |                   1587599 |     145059
+encaps                               |      13737 |         10.000 |         727.984 |      9.714 |                   1819911 |      24257
+decaps                               |      14137 |         10.001 |         707.411 |      9.861 |                   1768486 |      24629
 public key bytes: 9616, ciphertext bytes: 9720, secret key bytes: 19888, shared secret key bytes: 16, NIST level: 1, IND-CCA: Y
-Ended at 2024-10-25 13:09:18
+Ended at 2024-10-26 08:18:54
